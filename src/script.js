@@ -136,11 +136,7 @@ gui.add(halfToneWater.uniforms.uBigWavesElevation, 'value').min(0).max(1).step(0
 gui.add(halfToneWater.uniforms.uBigWavesFrequency.value, 'x').min(0).max(10).step(0.001).name('uBigWavesFrequencyX')
 gui.add(halfToneWater.uniforms.uBigWavesFrequency.value, 'y').min(0).max(10).step(0.001).name('uBigWavesFrequencyY')
 gui.add(halfToneWater.uniforms.uBigWavesSpeed, 'value').min(0).max(4).step(0.001).name('uBigWavesSpeed')
-gui
-    .addColor(debugObject, 'depthColor').name('depthColor')
-    .onChange(() => {
-        waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor)
-    })
+
 
 gui.add(halfToneWater.uniforms.uSmallWavesElevation, 'value').min(0).max(1).step(0.001).name('uSmallWavesElevation')
 gui.add(halfToneWater.uniforms.uSmallWavesFrequency, 'value').min(0).max(30).step(0.001).name('uSmallWavesFrequency')
