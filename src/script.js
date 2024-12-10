@@ -68,7 +68,6 @@ const halfToneWater = new THREE.ShaderMaterial({
         uSmallWavesIterations: { value: 4 },
 
         uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
-        uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
         uColorOffset: { value: 0.08 },
         uColorMultiplier: { value: 5 },
 
@@ -93,11 +92,6 @@ gui
         halfToneWater.uniforms.uColor.value.set(halftoneParameters.color)
     })
 
-gui
-    .add(halfToneWater.uniforms.uShadowRepetitions, 'value')
-    .min(1)
-    .max(300)
-    .step(1)
 
 gui
     .addColor(halftoneParameters, 'shadowColor')
@@ -147,13 +141,7 @@ gui
     .onChange(() => {
         waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor)
     })
-gui
-    .addColor(debugObject, 'surfaceColor').name('surfaceColor')
-    .onChange(() => {
-        waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor)
-    })
-gui.add(halfToneWater.uniforms.uColorOffset, 'value').min(0).max(1).step(0.01).name('uColorOffset')
-gui.add(halfToneWater.uniforms.uColorMultiplier, 'value').min(0).max(10).step(0.01).name('uColorMultiplier')
+
 gui.add(halfToneWater.uniforms.uSmallWavesElevation, 'value').min(0).max(1).step(0.001).name('uSmallWavesElevation')
 gui.add(halfToneWater.uniforms.uSmallWavesFrequency, 'value').min(0).max(30).step(0.001).name('uSmallWavesFrequency')
 gui.add(halfToneWater.uniforms.uSmallWavesSpeed, 'value').min(0).max(4).step(0.001).name('uSmallWavesSpeed')
